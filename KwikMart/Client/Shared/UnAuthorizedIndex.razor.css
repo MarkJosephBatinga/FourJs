@@ -1,0 +1,111 @@
+﻿.title-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    color: #E592AA;
+}
+
+.title-box {
+    margin-bottom: 70px;
+}
+
+.sub-title {
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.category-box {
+    background: #FFFBE7;
+    border-radius: 20px;
+    padding: 20px 50px;
+    margin-bottom: 70px;
+}
+
+.category-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    color: #E592AA;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.category-card {
+    background: #B9F8D3;
+    border-radius: 30px;
+}
+
+.category-img {
+    width: 100%;
+}
+
+.category-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    color: #E592AA;
+    margin-bottom: 25px;
+}
+
+.why-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    color: #B9F8D3;
+}
+
+.why-content {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.contact-box {
+    background: #FFFBE7;
+    border-radius: 20px;
+}
+
+.contact-img {
+    width: 60%;
+    height: auto;
+}
+
+.contact-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.contact-button {
+    margin-top: 25px;
+    border: 3px solid #E592AA;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: transparent;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    color: #E592AA;
+}
+
+    .contact-button:hover {
+        background-color: #E592AA;
+        color: #FFFBE7;
+    }

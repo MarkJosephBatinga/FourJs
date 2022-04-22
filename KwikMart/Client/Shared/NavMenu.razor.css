@@ -1,0 +1,18 @@
+.nav-container {
+    background: #B9F8D3;
+    padding: 0px;
+}
+
+.logo-img {
+    width: 50%;
+    height: auto;
+}
+
+.nav-text {
+    margin-left: 30px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #E592AA;
+}

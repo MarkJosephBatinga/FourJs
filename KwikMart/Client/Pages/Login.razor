@@ -1,0 +1,120 @@
+﻿@page "/login"
+@inject IUserService UserService
+@inject ILocalStorageService LocalStorage
+@inject AuthenticationStateProvider Authentication
+@inject NavigationManager Navigation
+@inject IToastService Toast
+@inject IJSRuntime JsRuntime
+
+<div class="container-fluid body-container">
+    <div class="login-container row">
+        <div class="img-box h-100 col-6 d-flex flex-column justify-content-end align-items-end">
+            <img class="main-img" src="@(onPage == 1 ? "./css/images/login.png": "./css/images/welcome.svg")" alt="Login Image">
+        </div>
+        <div class="login-box col-6 d-flex justify-content-center">
+            <div class="white-box">
+                <div class="box-header d-flex align-items-center">
+                    <img src="./css/images/kwekmart.png" alt="Logo" class="logo-header me-auto">
+                    <div>
+                        <button class="switch-btn me-4" @onclick="() => SwitchPage(1)">Login</button>
+                        <button class="switch-btn me-4" @onclick="() => SwitchPage(2)">SignUp</button>
+                    </div>
+                </div>
+                @if (onPage == 1)
+                {
+                    <EditForm Model="existingUser" OnValidSubmit="OnClickLogin">
+                        <DataAnnotationsValidator></DataAnnotationsValidator>
+                        <div class="input-card d-flex flex-column align-items-center">
+                            <p class="input-label">Email Address</p>
+                            <ValidationMessage For="() => existingUser.EmailAddress" />
+                            <input class="input-box" @bind-value="existingUser.EmailAddress" type="text" name="email">
+
+                            <p class="input-label">Password</p>
+                            <ValidationMessage For="() => existingUser.Password" />
+                            <input class="input-box" @bind-value="existingUser.Password" type="password" name="password">
+
+                            <button class="btn-submit" type="submit" disabled="@disable">Login</button>
+                        </div>
+                    </EditForm>
+                    <p class="forgot-text text-center">Forgot Password? <a href="">Click Here</a></p>
+                }
+                else
+                {
+                    <EditForm Model="newUser" OnValidSubmit="OnClickRegister">
+                        <DataAnnotationsValidator></DataAnnotationsValidator>
+                        <div class="input-card d-flex flex-column align-items-center">
+                            <p class="input-label">Full Name</p>
+                            <ValidationMessage For="() => newUser.FullName" />
+                            <input class="input-box" type="text" @bind-value="newUser.FullName" name="name" placeholder="FirstName LastName">
+
+                            <p class="input-label">Email Address</p>
+                            <ValidationMessage For="() => newUser.EmailAddress" />
+                            <input class="input-box" type="text" @bind-value="newUser.EmailAddress" name="email" placeholder="example@email.com">
+
+                            <p class="input-label">Address</p>
+                            <ValidationMessage For="() => newUser.Address" />
+                            <input class="input-box" type="text" @bind-value="newUser.Address" name="address" placeholder="Brgy, Town, Province">
+
+                            <p class="input-label">Phone Number</p>
+                            <ValidationMessage For="() => newUser.Phone" />
+                            <input class="input-box" type="text" @bind-value="newUser.Phone" name="phone" placeholder="09123456789">
+
+                            <p class="input-label">Password</p>
+                            <ValidationMessage For="() => newUser.Password" />
+                            <input class="input-box" type="password" @bind-value="newUser.Password" name="password" placeholder="minimum of 8 characters">
+
+                            <p class="input-label">Confirm Password</p>
+                            <ValidationMessage For="() => newUser.ConfirmPassword" />
+                            <input class="input-box" type="password" @bind-value="newUser.ConfirmPassword" name="cpassword" placeholder="minimum of 8 characters">
+
+                            <button class="btn-submit" type="submit" disabled="@disable">Sign Up</button>
+                        </div>
+                    </EditForm>
+                    <p class="forgot-text text-center">Already Have an Account? <a href="">Click Here</a></p>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    int onPage = 1;
+    LoginUser existingUser = new LoginUser();
+    User newUser = new User();
+    bool disable = false;
+
+    private void SwitchPage(int newPage)
+    {
+        onPage = newPage;
+    }
+
+    private async Task OnClickLogin()
+    {
+        disable = true;
+        var user = await UserService.LoginUser(existingUser);
+        if (user.Id != 0)
+        {
+            await LocalStorage.SetItemAsStringAsync("username", existingUser.EmailAddress);
+            await Authentication.GetAuthenticationStateAsync();
+            Navigation.NavigateTo("");
+        }
+        else
+        {
+            Toast.ShowError("Invalid Email or Password, Please Try Again", "Login Failed");
+            Console.WriteLine("Invalid");
+            disable = false;
+        }
+    }
+
+    private async Task OnClickRegister()
+    {
+        disable = true;
+        var result = await UserService.RegisterUser(newUser);
+        if(result != null)
+        {
+            await LocalStorage.SetItemAsStringAsync("username", newUser.EmailAddress);
+            await Authentication.GetAuthenticationStateAsync();
+            Navigation.NavigateTo("");
+        }
+    }
+}
