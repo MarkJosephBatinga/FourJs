@@ -1,0 +1,121 @@
+﻿@page "/account"
+@inject IUserService UserService
+@inject ILocalStorageService LocalStorage
+@inject IToastService ToastService
+@inject IJSRuntime JsRuntime
+@inject AuthenticationStateProvider Authentication
+@inject NavigationManager NavManager
+
+<div class="container-fluid body-container">
+    <div class="account-container row">
+        <div class="img-box h-100 col-6 d-flex flex-column justify-content-end align-items-end">
+            <img class="main-img" src="./css//images/account.svg" alt="Account Image">
+        </div>
+        <div class="login-box col-6 d-flex justify-content-center">
+            @if (!switchEdit)
+            {
+                <div class="white-box d-flex flex-column justify-content-center">
+                    <h3 class="acc-title mb-5 text-center">@user.FullName Account</h3>
+                    <table>
+                        <tr>
+                            <th>Full Name</th>
+                            <td>@user.FullName</td>
+                        </tr>
+                        <tr>
+                            <th>Email Address</th>
+                            <td>@user.EmailAddress</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>@user.Address</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number</th>
+                            <td>@user.Phone</td>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <td>************</td>
+                        </tr>
+                    </table>
+                    <div class="acc-btn d-flex justify-content-end align-items-center mt-5">
+                        <button class="delete-acc m-2" @onclick="OnClickDelete">Delete Account</button>
+                        <button class="edit-acc m-2" @onclick="SwitchPageEdit">Edit Account</button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="white-box">
+                     <h3 class="acc-title mb-5 text-center">Edit Account</h3>
+                    <EditForm Model="user" OnValidSubmit="OnClickUpdate">
+                        <DataAnnotationsValidator></DataAnnotationsValidator>
+                        <div class="input-card d-flex flex-column align-items-center">
+                            <p class="input-label">Full Name</p>
+                            <ValidationMessage For="() => user.FullName" />
+                            <input class="input-box" type="text" @bind-value="user.FullName" name="name" placeholder="FirstName LastName">
+
+                            <p class="input-label">Email Address</p>
+                            <ValidationMessage For="() => user.EmailAddress" />
+                            <input class="input-box" type="text" @bind-value="user.EmailAddress" name="email" placeholder="example@email.com">
+
+                            <p class="input-label">Address</p>
+                            <ValidationMessage For="() => user.Address" />
+                            <input class="input-box" type="text" @bind-value="user.Address" name="address" placeholder="Brgy, Town, Province">
+
+                            <p class="input-label">Phone Number</p>
+                            <ValidationMessage For="() => user.Phone" />
+                            <input class="input-box" type="text" @bind-value="user.Phone" name="phone" placeholder="09123456789">
+
+                            <p class="input-label">Password</p>
+                            <ValidationMessage For="() => user.Password" />
+                            <input class="input-box" type="password" @bind-value="user.Password" name="password" placeholder="minimum of 8 characters">
+
+                            <p class="input-label">Confirm Password</p>
+                            <ValidationMessage For="() => user.ConfirmPassword" />
+                            <input class="input-box" type="password" @bind-value="user.ConfirmPassword" name="cpassword" placeholder="minimum of 8 characters">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a @onclick="SwitchPageEdit" class="btn-submit m-2">Cancel</a>
+                                <button class="btn-submit m-2" type="submit">Update Account</button>
+                            </div>
+                        </div>
+                    </EditForm>
+                </div>
+            }
+        </div> 
+    </div>
+</div>
+
+@code {        
+    User user = new User();
+    bool switchEdit = false;
+
+    protected async override Task OnInitializedAsync()
+    {
+        var username = await LocalStorage.GetItemAsStringAsync("username");
+        user = await UserService.GetUser(username);
+    }
+
+    private void SwitchPageEdit()
+    {
+        switchEdit = !switchEdit;
+    }
+
+    private async Task OnClickUpdate()
+    {
+        var updatedUser = await UserService.UpdateUser(user);
+        if(updatedUser != null)
+        {
+            user = updatedUser;
+            ToastService.ShowSuccess("Succesfully Updated", "Account Successfully Updated");
+            await LocalStorage.SetItemAsStringAsync("username", updatedUser.EmailAddress);
+            await Authentication.GetAuthenticationStateAsync();
+            switchEdit = !switchEdit;
+        }
+    }
+
+    private async Task OnClickDelete()
+    {
+        ToastService.ShowSuccess("Succesfully Deleted", "Account Successfully Deleted");
+    }
+}

@@ -36,5 +36,23 @@ namespace KwikMart.Server.Controllers
         {
             return user = await _userService.GetUser(existingUser);
         }
+
+        [HttpPost("update")]
+        public async Task<ActionResult<User>> UpdateUser(User existingUser)
+        {
+            return user = await _userService.UpdateUSer(existingUser);
+        }
+
+        [HttpGet("{username}")]
+        public async Task<ActionResult<User>> GetUser(string username)
+        {
+            return user = await _userService.GetLogUser(username);
+        }
+
+        [HttpGet("remove/{Id:int}")]
+        public async Task<ActionResult<User>> DeleteUser(int Id)
+        {
+            return user = await _userService.RemoveUser(Id);
+        }
     }
 }

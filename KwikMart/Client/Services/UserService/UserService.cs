@@ -17,6 +17,18 @@ namespace KwikMart.Client.Services.UserService
             _httpClient = httpClient;
         }
 
+        public async Task<User> DeleteUser(int Id)
+        {
+            var result = await _httpClient.GetFromJsonAsync<User>($"api/user/remove/{Id}");
+            return result;
+        }
+
+        public async Task<User> GetUser(string username)
+        {
+            var result = await _httpClient.GetFromJsonAsync<User>($"api/user/{username}");
+            return result;
+        }
+
         public async Task<User> LoginUser(LoginUser existingUser)
         {
             var result = await _httpClient.PostAsJsonAsync("api/user/login", existingUser);
@@ -28,6 +40,13 @@ namespace KwikMart.Client.Services.UserService
         {
             var result = await _httpClient.PostAsJsonAsync("api/user/register", newUser);
             var status = await result.Content.ReadFromJsonAsync<List<User>>();
+            return status;
+        }
+
+        public async Task<User> UpdateUser(User existingUser)
+        {
+            var result = await _httpClient.PostAsJsonAsync("api/user/update", existingUser);
+            var status = await result.Content.ReadFromJsonAsync<User>();
             return status;
         }
     }

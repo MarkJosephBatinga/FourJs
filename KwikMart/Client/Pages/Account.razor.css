@@ -1,0 +1,139 @@
+﻿.account-container {
+    height: 100%;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.main-img {
+    width: 100%;
+}
+
+.acc-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 25px;
+    color: #E592AA;
+}
+
+.white-box {
+    width: 70%;
+    background: #FFFBE7;
+    border-radius: 20px;
+    padding: 15px 20px;
+    background: #FFFBE7;
+    box-shadow: 0px 5px 5px #E592AA;
+    border-radius: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+
+th {
+    text-align: end;
+    padding: 30px 30px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    color: #E592AA;
+}
+
+td {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #40DFEF;
+}
+
+.delete-acc {
+    border: 3px solid #F2380F;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 5px 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    color: #F2380F;
+}
+
+.edit-acc {
+    border: 3px solid #40DFEF;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 5px 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    color: #40DFEF;
+}
+
+.delete-acc:hover {
+    background-color: #F2380F;
+    color: #ffffff;
+}
+
+.edit-acc:hover {
+    background-color: #40DFEF;
+    color: #ffffff;
+}
+
+.input-card {
+    width: 100%;
+}
+
+.input-label {
+    margin-top: 20px;
+    width: 80%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-indent: 5px;
+    color: #E592AA;
+}
+
+.input-box {
+    width: 80%;
+    background: #E592AA;
+    border-radius: 20px;
+    border: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFBE7;
+    padding: 8px;
+}
+
+.btn-submit {
+    margin-top: 70px;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: 3px solid #E592AA;
+    box-sizing: border-box;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #E592AA;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .btn-submit:hover {
+        background-color: #E592AA;
+        color: #FFFBE7;
+    }

@@ -8,8 +8,11 @@ namespace KwikMart.Server.Services.UserService
 {
     public interface IUserService
     {
-        Task<List<User>> AddUser(User newUser);
+        Task<User> GetLogUser(string username);
 
+        Task<List<User>> AddUser(User newUser);
         Task<User> GetUser(LoginUser existingUser);
+        Task<User> UpdateUSer(User existingUser);
+        Task<User> RemoveUser(int userId);
     }
 }

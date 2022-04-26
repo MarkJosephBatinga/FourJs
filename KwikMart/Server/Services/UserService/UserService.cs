@@ -12,6 +12,7 @@ namespace KwikMart.Server.Services.UserService
     {
         private readonly DataContext _data;
         List<User> Users = new List<User>();
+        User user = new User();
 
         public UserService(DataContext data)
         {
@@ -32,6 +33,28 @@ namespace KwikMart.Server.Services.UserService
             if (dbuser == null)
                 return dbnotfound;
             return dbuser;
+        }
+
+        public async Task<User> GetLogUser(string username)
+        {
+            return user = await _data.Users.Where(u => u.EmailAddress == username).FirstOrDefaultAsync();
+        }
+
+        public async Task<User> UpdateUSer(User existingUser)
+        {
+            var dbUser = await _data.Users.FindAsync(existingUser.Id);
+            if (dbUser != null)
+            {
+                _data.Entry(dbUser).CurrentValues.SetValues(existingUser);
+                await _data.SaveChangesAsync();
+            }
+            return dbUser;
+        }
+
+        public async Task<User> RemoveUser(int userId)
+        {
+            var user = await _data.Users.Where(u => u.Id == userId).FirstOrDefaultAsync();
+            return user;
         }
     }
 }
