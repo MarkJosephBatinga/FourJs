@@ -116,6 +116,13 @@
 
     private async Task OnClickDelete()
     {
-        ToastService.ShowSuccess("Succesfully Deleted", "Account Successfully Deleted");
+        var dbusers = await UserService.DeleteUser(user.Id);
+        if(dbusers != null)
+        {
+            ToastService.ShowSuccess("Succesfully Deleted", "Account Successfully Deleted");
+            await LocalStorage.RemoveItemAsync("username");
+            await Authentication.GetAuthenticationStateAsync();
+            NavManager.NavigateTo("/login");
+        }
     }
 }

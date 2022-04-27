@@ -17,9 +17,9 @@ namespace KwikMart.Client.Services.UserService
             _httpClient = httpClient;
         }
 
-        public async Task<User> DeleteUser(int Id)
+        public async Task<List<User>> DeleteUser(int Id)
         {
-            var result = await _httpClient.GetFromJsonAsync<User>($"api/user/remove/{Id}");
+            var result = await _httpClient.GetFromJsonAsync<List<User>>($"api/user/remove/{Id}");
             return result;
         }
 

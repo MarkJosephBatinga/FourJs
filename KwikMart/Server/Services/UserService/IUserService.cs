@@ -13,6 +13,6 @@ namespace KwikMart.Server.Services.UserService
         Task<List<User>> AddUser(User newUser);
         Task<User> GetUser(LoginUser existingUser);
         Task<User> UpdateUSer(User existingUser);
-        Task<User> RemoveUser(int userId);
+        Task<List<User>> RemoveUser(int userId);
     }
 }

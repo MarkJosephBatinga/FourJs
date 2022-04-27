@@ -50,9 +50,9 @@ namespace KwikMart.Server.Controllers
         }
 
         [HttpGet("remove/{Id:int}")]
-        public async Task<ActionResult<User>> DeleteUser(int Id)
+        public async Task<ActionResult<List<User>>> DeleteUser(int Id)
         {
-            return user = await _userService.RemoveUser(Id);
+            return Users = await _userService.RemoveUser(Id);
         }
     }
 }

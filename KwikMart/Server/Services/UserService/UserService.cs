@@ -51,10 +51,13 @@ namespace KwikMart.Server.Services.UserService
             return dbUser;
         }
 
-        public async Task<User> RemoveUser(int userId)
+        public async Task<List<User>> RemoveUser(int userId)
         {
             var user = await _data.Users.Where(u => u.Id == userId).FirstOrDefaultAsync();
-            return user;
+            _data.Users.Remove(user);
+            await _data.SaveChangesAsync();
+            Users = await _data.Users.ToListAsync();
+            return Users;
         }
     }
 }
