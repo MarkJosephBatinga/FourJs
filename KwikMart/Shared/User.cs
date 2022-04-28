@@ -15,10 +15,6 @@ namespace KwikMart.Shared
         [Required(ErrorMessage = "Full Name is Required")]
         public string FullName { get; set; }
 
-        [Required(ErrorMessage = "Phone Number is Required")]
-        [Phone(ErrorMessage = "Invalid Phone Number")]
-        public string Phone { get; set; }
-
         [Required(ErrorMessage = "Email is Required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string EmailAddress { get; set; }
@@ -27,8 +23,6 @@ namespace KwikMart.Shared
         [MinLength(8, ErrorMessage = "8 Minimum Characters Required")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Address is Required")]
-        public string Address { get; set; }
 
         [NotMapped]
         [Compare("Password", ErrorMessage = "Password and Confirm Password must match")]

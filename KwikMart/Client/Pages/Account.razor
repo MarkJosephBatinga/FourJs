@@ -9,9 +9,6 @@
 <div class="container-fluid body-container">
     <div class="account-container row">
         <div class="img-box h-100 col-6 d-flex flex-column justify-content-end align-items-end">
-            <img class="main-img" src="./css//images/account.svg" alt="Account Image">
-        </div>
-        <div class="login-box col-6 d-flex justify-content-center">
             @if (!switchEdit)
             {
                 <div class="white-box d-flex flex-column justify-content-center">
@@ -24,14 +21,6 @@
                         <tr>
                             <th>Email Address</th>
                             <td>@user.EmailAddress</td>
-                        </tr>
-                        <tr>
-                            <th>Address</th>
-                            <td>@user.Address</td>
-                        </tr>
-                        <tr>
-                            <th>Phone Number</th>
-                            <td>@user.Phone</td>
                         </tr>
                         <tr>
                             <th>Password</th>
@@ -47,7 +36,7 @@
             else
             {
                 <div class="white-box">
-                     <h3 class="acc-title mb-5 text-center">Edit Account</h3>
+                    <h3 class="acc-title mb-5 text-center">Edit Account</h3>
                     <EditForm Model="user" OnValidSubmit="OnClickUpdate">
                         <DataAnnotationsValidator></DataAnnotationsValidator>
                         <div class="input-card d-flex flex-column align-items-center">
@@ -58,14 +47,6 @@
                             <p class="input-label">Email Address</p>
                             <ValidationMessage For="() => user.EmailAddress" />
                             <input class="input-box" type="text" @bind-value="user.EmailAddress" name="email" placeholder="example@email.com">
-
-                            <p class="input-label">Address</p>
-                            <ValidationMessage For="() => user.Address" />
-                            <input class="input-box" type="text" @bind-value="user.Address" name="address" placeholder="Brgy, Town, Province">
-
-                            <p class="input-label">Phone Number</p>
-                            <ValidationMessage For="() => user.Phone" />
-                            <input class="input-box" type="text" @bind-value="user.Phone" name="phone" placeholder="09123456789">
 
                             <p class="input-label">Password</p>
                             <ValidationMessage For="() => user.Password" />
@@ -82,6 +63,9 @@
                     </EditForm>
                 </div>
             }
+        </div>
+        <div class="login-box col-6 d-flex justify-content-center">
+            <img class="main-img" src="./css//images/account.svg" alt="Account Image">
         </div> 
     </div>
 </div>

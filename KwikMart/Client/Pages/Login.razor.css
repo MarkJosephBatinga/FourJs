@@ -14,7 +14,7 @@
 
 .white-box {
     width: 70%;
-    background: #FFFBE7;
+    background: #F5D547;
     border-radius: 20px;
     padding: 15px 20px;
 }
@@ -24,9 +24,9 @@
     border: none;
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 25px;
-    color: #E592AA;
+    color: #1446A0;
 }
 
     .switch-btn:hover {
@@ -45,12 +45,12 @@
     font-size: 20px;
     line-height: 25px;
     text-indent: 5px;
-    color: #E592AA;
+    color: #1446A0;
 }
 
 .input-box {
     width: 80%;
-    background: #E592AA;
+    background: #1446A0;
     border-radius: 20px;
     border: none;
     font-style: normal;
@@ -65,7 +65,7 @@
     margin-top: 70px;
     padding: 10px 20%;
     background-color: transparent;
-    border: 3px solid #E592AA;
+    border: 3px solid #1446A0;
     box-sizing: border-box;
     border-radius: 20px;
     font-style: normal;
@@ -73,12 +73,12 @@
     font-size: 20px;
     line-height: 25px;
     text-align: center;
-    color: #E592AA;
+    color: #1446A0;
 }
 
     .btn-submit:hover {
-        background-color: #E592AA;
-        color: #FFFBE7;
+        background-color: #1446A0;
+        color: #1446A0;
     }
 
 .forgot-text {
@@ -88,7 +88,7 @@
     font-size: 20px;
     line-height: 25px;
     text-align: center;
-    color: #E592AA;
+    color: #1446A0;
 }
 
     .forgot-text > a {

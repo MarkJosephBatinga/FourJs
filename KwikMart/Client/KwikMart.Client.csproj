@@ -18,8 +18,4 @@
     <ProjectReference Include="..\Shared\KwikMart.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\css\images\" />
-  </ItemGroup>
-
 </Project>

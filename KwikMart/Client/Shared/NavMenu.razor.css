@@ -1,10 +1,10 @@
 .nav-container {
-    background: #B9F8D3;
+    background: #DB3069;
     padding: 0px;
 }
 
 .logo-img {
-    width: 50%;
+    width: 150px;
     height: auto;
 }
 
@@ -14,5 +14,5 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    color: #E592AA;
+    color: #EBEBD3;
 }

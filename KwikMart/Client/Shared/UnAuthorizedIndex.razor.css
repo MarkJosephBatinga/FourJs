@@ -3,7 +3,7 @@
     font-weight: 700;
     font-size: 40px;
     line-height: 50px;
-    color: #E592AA;
+    color: #EBEBD3;
 }
 
 .title-box {
@@ -16,11 +16,11 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 30px;
-    color: #000000;
+    color: #F5D547;
 }
 
 .category-box {
-    background: #FFFBE7;
+    background: #F5D547;
     border-radius: 20px;
     padding: 20px 50px;
     margin-bottom: 70px;
@@ -31,18 +31,18 @@
     font-weight: 700;
     font-size: 40px;
     line-height: 50px;
-    color: #E592AA;
+    color: #1446A0;
     text-align: center;
     margin-bottom: 50px;
 }
 
 .category-card {
-    background: #B9F8D3;
+    background: #DB3069;
     border-radius: 30px;
 }
 
 .category-img {
-    width: 100%;
+    width: 200px;
 }
 
 .category-text {
@@ -51,7 +51,7 @@
     font-size: 20px;
     line-height: 25px;
     text-align: center;
-    color: #E592AA;
+    color: #F5D547;
     margin-bottom: 25px;
 }
 
@@ -60,20 +60,19 @@
     font-weight: 700;
     font-size: 36px;
     line-height: 45px;
-    color: #B9F8D3;
+    color: #EBEBD3;
 }
 
 .why-content {
-    font-family: 'Quicksand';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
-    color: #000000;
+    color: #F5D547;
 }
 
 .contact-box {
-    background: #FFFBE7;
+    background: #EBEBD3;
     border-radius: 20px;
 }
 
@@ -93,7 +92,7 @@
 
 .contact-button {
     margin-top: 25px;
-    border: 3px solid #E592AA;
+    border: 3px solid #1446A0;
     padding: 10px 30px;
     box-sizing: border-box;
     border-radius: 20px;
@@ -102,10 +101,10 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 30px;
-    color: #E592AA;
+    color: #1446A0;
 }
 
     .contact-button:hover {
-        background-color: #E592AA;
+        background-color: #1446A0;
         color: #FFFBE7;
     }

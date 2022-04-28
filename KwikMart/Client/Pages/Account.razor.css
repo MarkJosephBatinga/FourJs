@@ -13,16 +13,16 @@
     font-weight: 700;
     font-size: 30px;
     line-height: 25px;
-    color: #E592AA;
+    color: #1446A0;
 }
 
 .white-box {
     width: 70%;
-    background: #FFFBE7;
+    background: #F5D547;
     border-radius: 20px;
     padding: 15px 20px;
-    background: #FFFBE7;
-    box-shadow: 0px 5px 5px #E592AA;
+    background: #F5D547;
+    box-shadow: 0px 5px 5px #1446A0;
     border-radius: 20px;
 }
 
@@ -39,7 +39,7 @@ th {
     font-size: 20px;
     line-height: 25px;
     text-align: center;
-    color: #E592AA;
+    color: #1446A0;
 }
 
 td {
@@ -47,28 +47,27 @@ td {
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    color: #40DFEF;
+    color: #DB3069;
 }
 
 .delete-acc {
     border: 3px solid #F2380F;
     box-sizing: border-box;
     border-radius: 20px;
-    background-color: transparent;
+    background-color: #F2380F;
     padding: 5px 20px;
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
     text-align: center;
-    color: #F2380F;
+    color: #fff;
 }
 
 .edit-acc {
-    border: 3px solid #40DFEF;
     box-sizing: border-box;
     border-radius: 20px;
-    background-color: transparent;
+    background-color: #1446A0;
     padding: 5px 20px;
     font-style: normal;
     font-weight: 700;
@@ -77,63 +76,3 @@ td {
     text-align: center;
     color: #40DFEF;
 }
-
-.delete-acc:hover {
-    background-color: #F2380F;
-    color: #ffffff;
-}
-
-.edit-acc:hover {
-    background-color: #40DFEF;
-    color: #ffffff;
-}
-
-.input-card {
-    width: 100%;
-}
-
-.input-label {
-    margin-top: 20px;
-    width: 80%;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 25px;
-    text-indent: 5px;
-    color: #E592AA;
-}
-
-.input-box {
-    width: 80%;
-    background: #E592AA;
-    border-radius: 20px;
-    border: none;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 25px;
-    color: #FFFBE7;
-    padding: 8px;
-}
-
-.btn-submit {
-    margin-top: 70px;
-    padding: 5px 10px;
-    background-color: transparent;
-    border: 3px solid #E592AA;
-    box-sizing: border-box;
-    border-radius: 20px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: center;
-    color: #E592AA;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-    .btn-submit:hover {
-        background-color: #E592AA;
-        color: #FFFBE7;
-    }

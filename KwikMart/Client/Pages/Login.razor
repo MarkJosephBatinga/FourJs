@@ -8,13 +8,9 @@
 
 <div class="container-fluid body-container">
     <div class="login-container row">
-        <div class="img-box h-100 col-6 d-flex flex-column justify-content-end align-items-end">
-            <img class="main-img" src="@(onPage == 1 ? "./css/images/login.png": "./css/images/welcome.svg")" alt="Login Image">
-        </div>
         <div class="login-box col-6 d-flex justify-content-center">
             <div class="white-box">
-                <div class="box-header d-flex align-items-center">
-                    <img src="./css/images/kwekmart.png" alt="Logo" class="logo-header me-auto">
+                <div class="box-header d-flex align-items-center justify-content-center mt-5">
                     <div>
                         <button class="switch-btn me-4" @onclick="() => SwitchPage(1)">Login</button>
                         <button class="switch-btn me-4" @onclick="() => SwitchPage(2)">SignUp</button>
@@ -51,14 +47,6 @@
                             <ValidationMessage For="() => newUser.EmailAddress" />
                             <input class="input-box" type="text" @bind-value="newUser.EmailAddress" name="email" placeholder="example@email.com">
 
-                            <p class="input-label">Address</p>
-                            <ValidationMessage For="() => newUser.Address" />
-                            <input class="input-box" type="text" @bind-value="newUser.Address" name="address" placeholder="Brgy, Town, Province">
-
-                            <p class="input-label">Phone Number</p>
-                            <ValidationMessage For="() => newUser.Phone" />
-                            <input class="input-box" type="text" @bind-value="newUser.Phone" name="phone" placeholder="09123456789">
-
                             <p class="input-label">Password</p>
                             <ValidationMessage For="() => newUser.Password" />
                             <input class="input-box" type="password" @bind-value="newUser.Password" name="password" placeholder="minimum of 8 characters">
@@ -74,6 +62,9 @@
                 }
 
             </div>
+        </div>
+        <div class="img-box col-6 d-flex flex-column justify-content-end align-items-end">
+            <img class="main-img" src="./css/images/create.svg" alt="Login Image">
         </div>
     </div>
 </div>
@@ -101,7 +92,6 @@
         else
         {
             Toast.ShowError("Invalid Email or Password, Please Try Again", "Login Failed");
-            Console.WriteLine("Invalid");
             disable = false;
         }
     }
