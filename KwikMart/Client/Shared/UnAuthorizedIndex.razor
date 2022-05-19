@@ -58,8 +58,30 @@
             <img src="./css/images/contc.png" class="contact-img" alt="Contact">
         </div>
         <div class="contact-content-card col-8 d-flex flex-column align-items-center justify-content-center">
-            <h3 class="contact-text">Any Question or Quiries? We can answer them directly.</h3>
-            <button class="contact-button">Contact Us</button>
+
+            @if (!contact)
+            {
+                <h3 class="contact-text">Any Question or Quiries? We can answer them directly.</h3>
+                <button class="contact-button" @onclick="OnContactClick">Contact Us</button>
+            }
+            else
+            {
+                <h3 class="contact-text">Contact Use here</h3>
+                <h3 class="contact-text">fourjsofficial@gmail.com</h3>
+                <h3 class="contact-text">+63 9123456789</h3>
+                <button class="contact-button" @onclick="OnContactClick">Cancel</button>
+            }
+
         </div>
     </div>
 </div>
+
+@code {
+
+    bool contact = false;
+
+    private void OnContactClick()
+    {
+        contact = !contact;
+    }
+} 
